@@ -13,7 +13,7 @@ import macaca.client.common.ElementSelector;
 public class BankInfoTest{
 	
 	LaunchXiaqiuTest launchTest = new LaunchXiaqiuTest();
-	
+	   
 	MacacaClient driver = new MacacaClient();
 	
 
