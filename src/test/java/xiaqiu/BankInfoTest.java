@@ -2,36 +2,42 @@ package xiaqiu;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.alibaba.fastjson.JSONObject;
+
 import macaca.client.MacacaClient;
-import macaca.client.commands.Element;
 import macaca.client.common.ElementSelector;
 
-public class BankInfoTest{
+public class BankInfoTest {
 	
-	LaunchXiaqiuTest launchTest = new LaunchXiaqiuTest();
-	   
-	MacacaClient driver = new MacacaClient();
-	
+	static MacacaClient driver = new MacacaClient();
 
-	 @BeforeClass 
-	 public void setUpBeforeClass() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		
+		JSONObject porps = new JSONObject();
+        porps.put("platformName", "android");
+        porps.put("app", "/Users/zhifang.xing/WorkSpace/Microcredit/app/xiaqiu_v1.4.6.apk");
+        porps.put("reuse", 1);
+//        porps.put("deviceName","L7T4O7UW99999999");
+        porps.put("autoAcceptAlerts", true);
+//        porps.put("browserName", "Chrome");
+        JSONObject desiredCapabilities = new JSONObject();
+        desiredCapabilities.put("desiredCapabilities", porps);
+        driver.initDriver(desiredCapabilities);
 	}
 
-	 @AfterClass 
-	 public void tearDownAfterClass() throws Exception {
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		driver.quit();
 	}
 
 	@Test
-	public void test_case_3() throws Exception {
-//		launchTest.test_case_1();
+	public void test1() throws Exception {
 		
-        
 //		进入银行卡信息页面
         System.err.println("------------#4 bankinfo test-------------------");
         ElementSelector selector = driver.elementsByClassName("android.view.View");
@@ -61,13 +67,9 @@ public class BankInfoTest{
         driver.elementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.view.View[1]/android.webkit.WebView[1]/android.webkit.WebView[1]/android.view.View[1]/android.view.View[13]/")
         .click();
         
-        
-        
-        
-        
-        
-        
-        
+		
 	}
+	
+	
 
 }
