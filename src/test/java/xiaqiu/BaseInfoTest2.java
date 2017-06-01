@@ -2,25 +2,22 @@ package xiaqiu;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.alibaba.fastjson.JSONObject;
 
 import macaca.client.MacacaClient;
-import macaca.client.commands.Element;
 import macaca.client.common.ElementSelector;
 
-public class BaseInfoTest{
+public class BaseInfoTest2 {
 	
-	
-	
-	MacacaClient driver = new MacacaClient();
-	
+	static MacacaClient driver = new MacacaClient();
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		
 		JSONObject porps = new JSONObject();
         porps.put("platformName", "android");
         porps.put("app", "/Users/zhifang.xing/WorkSpace/Microcredit/app/xiaqiu_v1.4.6.apk");
@@ -31,16 +28,17 @@ public class BaseInfoTest{
         JSONObject desiredCapabilities = new JSONObject();
         desiredCapabilities.put("desiredCapabilities", porps);
         driver.initDriver(desiredCapabilities);
-		
+        
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		 driver.quit();
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		driver.quit();
 	}
 
 	@Test
-	public void test_case_2() throws Exception {
+	public void test() throws Exception {
+		
 		System.err.println("LaunchXiaqiuTest pass");
 		System.err.println("------------#3 basicInfo test-------------------");
 	        
@@ -100,10 +98,9 @@ public class BaseInfoTest{
 	       .click();
 		
 		
-        
-        
-        
-        
+		
+		
+		
 		
 	}
 

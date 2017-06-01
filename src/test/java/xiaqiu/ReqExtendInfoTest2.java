@@ -2,9 +2,7 @@ package xiaqiu;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,40 +11,35 @@ import com.alibaba.fastjson.JSONObject;
 import macaca.client.MacacaClient;
 import macaca.client.common.ElementSelector;
 
-public class ReqExtendInfoTest{
+public class ReqExtendInfoTest2 {
 	
-	MacacaClient driver = new MacacaClient();
+	static MacacaClient driver = new MacacaClient();
 	
 
-	 @BeforeClass 
-	 public void setUpBeforeClass() throws Exception {
-		 
-		 JSONObject porps = new JSONObject();
-	        porps.put("platformName", "android");
-	        porps.put("app", "/Users/zhifang.xing/WorkSpace/Microcredit/app/xiaqiu_v1.4.6.apk");
-	        porps.put("reuse", 1);
-//	        porps.put("deviceName","L7T4O7UW99999999");
-	        porps.put("autoAcceptAlerts", true);
-//	        porps.put("browserName", "Chrome");
-	        JSONObject desiredCapabilities = new JSONObject();
-	        desiredCapabilities.put("desiredCapabilities", porps);
-	        driver.initDriver(desiredCapabilities);
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+		
+		JSONObject porps = new JSONObject();
+        porps.put("platformName", "android");
+        porps.put("app", "/Users/zhifang.xing/WorkSpace/Microcredit/app/xiaqiu_v1.4.6.apk");
+        porps.put("reuse", 1);
+//        porps.put("deviceName","L7T4O7UW99999999");
+        porps.put("autoAcceptAlerts", true);
+//        porps.put("browserName", "Chrome");
+        JSONObject desiredCapabilities = new JSONObject();
+        desiredCapabilities.put("desiredCapabilities", porps);
+        driver.initDriver(desiredCapabilities);
 	}
 
-
-	@AfterClass 
-	public void tearDownAfterClass() throws Exception {
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
 		driver.quit();
 	}
-		
-
 
 	@Test
-	public void test_case_4() throws Exception {
+	public void test() throws Exception{
 		
-//		launchTest.test_case_1();
 
-		
 //		进入完善信息页面
         System.err.println("------------#4 reqExtendInfo test-------------------");
 //        定位到住房状况
@@ -119,24 +112,6 @@ public class ReqExtendInfoTest{
        .click();
        
        
-     
-       
-       
-       
-       
-       
-     
-       
-       
-     
-       
-       
-     
-        
-        
-        
-        
-		
 	}
 
 }
